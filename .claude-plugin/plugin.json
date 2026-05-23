@@ -1,0 +1,9 @@
+{
+  "name": "maxs-skills",
+  "version": "1.0.0",
+  "description": "MAXs Education 麦壳思官方技能集 — AI 提示词工程、图转提示词与二次创作",
+  "author": {
+    "name": "MAXs Education 麦壳思"
+  },
+  "repository": "https://github.com/ziwuxin1/MAXs-Claude-Plugins"
+}

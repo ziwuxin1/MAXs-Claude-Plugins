@@ -1,0 +1,18 @@
+{
+  "name": "maxs",
+  "owner": {
+    "name": "MAXs Education 麦壳思"
+  },
+  "metadata": {
+    "description": "MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "maxs-skills",
+      "source": "./",
+      "description": "麦壳思官方技能集:AI 提示词工程 SOP、图转提示词与二次创作 SOP",
+      "version": "1.0.0"
+    }
+  ]
+}
