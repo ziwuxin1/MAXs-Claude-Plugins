@@ -1,5 +1,18 @@
 <p align="center"><img src="assets/maxs-logo.png" width="420" alt="MAXs"></p>
 
+<p align="center"><b>AI 技术美术全链路 Claude 技能集 · 从一张概念图到 3D 资产 / 场景</b><br>
+Full-pipeline Claude skills for AI technical art — concept art to 3D assets & scenes</p>
+
+<p align="center">
+  <a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat&logo=github&label=stars&color=e05d44" alt="stars"></a>
+  <img src="https://img.shields.io/badge/dynamic/json?label=release&query=%24.metadata.version&prefix=v&url=https%3A%2F%2Fraw.githubusercontent.com%2Fziwuxin1%2FMAXs-Claude-Plugins%2Fmain%2F.claude-plugin%2Fmarketplace.json&color=fe7d37" alt="release">
+  <img src="https://img.shields.io/badge/skills-5-2ea44f" alt="skills">
+  <img src="https://img.shields.io/github/last-commit/ziwuxin1/MAXs-Claude-Plugins?label=updated&color=9f7be1" alt="updated">
+  <br>
+  <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Cowork-1f6feb" alt="platform">
+  <img src="https://img.shields.io/badge/models-Nano%20Banana%20%2F%20Pro%20%2F%202-8957e5" alt="models">
+</p>
+
 # MAXs Claude Plugins
 
 MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)。
