@@ -1,6 +1,6 @@
 ---
 name: maxs-exterior-multiangle
-description: 麦壳思「室外场景·多机位参考」SOP助手。当用户(MAXs老师、AI技术美术、学生)拿着一张室外/外景概念设计图，想做以下任何一件事时，都要触发这个skill——生成同一外景的多角度图、出反打/侧打/高角度俯瞰/远景大全景机位、给UE5搭室外关卡出一组参考、做废土/城镇/废墟等外景art bible组图、用Nano Banana/Banana Pro/TAPNOW图生图换机位、或任何提到"室外多角度""外景换机位""无人机视角""拉远看全貌""街道穿行""营地/废墟/街区参考"的场景。不要因为用户没明说"按SOP做"就跳过——只要是麦壳思相关的"一张室外概念图变一组机位"的工作，都用这个skill。与系列配套：maxs-asset-breakdown(从零写)、maxs-image-to-prompt(图反推+二创)、maxs-multiview-reference(单物体多视图)、maxs-interior-multiangle(室内多机位)；本skill负责"室外空间 → 一组机位一致的场景参考"。
+description: 麦壳思「室外场景·多机位参考」SOP助手。当用户(MAXs老师、AI技术美术、学生)拿着一张室外/外景概念设计图，想做以下任何一件事时，都要触发这个skill——生成同一外景的多角度图、出反打/侧打/高角度俯瞰/远景大全景机位、给UE5搭室外关卡出一组参考、做废土/城镇/废墟等外景art bible组图、用Nano Banana/Banana Pro/TAPNOW图生图换机位、或任何提到"室外多角度""外景换机位""无人机视角""拉远看全貌""街道穿行""营地/废墟/街区参考"的场景。不要因为用户没明说"按SOP做"就跳过——只要是麦壳思相关的"一张室外概念图变一组机位"的工作，都用这个skill。与系列配套：maxs-asset-breakdown(资产拆解陈列)、maxs-image-to-prompt(图反推+二创)、maxs-multiview-reference(单物体多视图)、maxs-interior-multiangle(室内多机位)；本skill负责"室外空间 → 一组机位一致的场景参考"。
 ---
 
 # 麦壳思「室外场景·多机位参考」SOP

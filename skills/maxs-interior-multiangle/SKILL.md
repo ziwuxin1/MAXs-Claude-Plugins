@@ -1,6 +1,6 @@
 ---
 name: maxs-interior-multiangle
-description: 麦壳思「室内场景·多机位参考」SOP助手。当用户(MAXs老师、AI技术美术、学生)拿着一张室内/内景概念设计图，想做以下任何一件事时，都要触发这个skill——生成同一空间的多角度图、出反打/侧打/仰拍/俯瞰机位、给UE5搭场景出一组参考、做关卡美术的art bible内景组图、用Nano Banana/Banana Pro/TAPNOW图生图换机位、做分镜预览、或任何提到"室内多角度""场景换机位""从XX看向XX""反打""定场""走进去看""殿内/室内/内景参考"的场景。不要因为用户没明说"按SOP做"就跳过——只要是麦壳思相关的"一张室内概念图变一组机位"的工作，都用这个skill。与三件套配套：maxs-asset-breakdown(从零写)、maxs-image-to-prompt(图反推+二创)、maxs-multiview-reference(单物体多视图)；本skill负责"室内空间 → 一组机位一致的场景参考"。
+description: 麦壳思「室内场景·多机位参考」SOP助手。当用户(MAXs老师、AI技术美术、学生)拿着一张室内/内景概念设计图，想做以下任何一件事时，都要触发这个skill——生成同一空间的多角度图、出反打/侧打/仰拍/俯瞰机位、给UE5搭场景出一组参考、做关卡美术的art bible内景组图、用Nano Banana/Banana Pro/TAPNOW图生图换机位、做分镜预览、或任何提到"室内多角度""场景换机位""从XX看向XX""反打""定场""走进去看""殿内/室内/内景参考"的场景。不要因为用户没明说"按SOP做"就跳过——只要是麦壳思相关的"一张室内概念图变一组机位"的工作，都用这个skill。与三件套配套：maxs-asset-breakdown(资产拆解陈列)、maxs-image-to-prompt(图反推+二创)、maxs-multiview-reference(单物体多视图)；本skill负责"室内空间 → 一组机位一致的场景参考"。
 ---
 
 # 麦壳思「室内场景·多机位参考」SOP
