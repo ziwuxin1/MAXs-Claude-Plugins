@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/maxs-logo.png" width="420" alt="MAXs"></p>
 
-<p align="center"><b>AI 技术美术全链路 Claude 技能集 · 从一张概念图到 3D 资产 / 场景</b><br>
+<p align="center"><b>AI 技术美术3D场景全流程 Claude 技能集 · 从一张概念图到 3D 资产 / 场景</b><br>
 Full-pipeline Claude skills for AI technical art — concept art to 3D assets & scenes</p>
 
 <p align="center">
