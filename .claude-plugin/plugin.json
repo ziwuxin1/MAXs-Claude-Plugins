@@ -1,7 +1,7 @@
 {
   "name": "maxs-skills",
-  "version": "1.0.0",
-  "description": "MAXs Education 麦壳思官方技能集 — AI 提示词工程、图转提示词与二次创作",
+  "version": "1.1.0",
+  "description": "MAXs Education 麦壳思官方技能集 — AI 提示词工程、图转提示词与二次创作、图生图多视图参考",
   "author": {
     "name": "MAXs Education 麦壳思"
   },
