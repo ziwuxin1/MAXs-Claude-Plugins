@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场",
-    "version": "1.3.1"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "maxs-skills",
       "source": "./",
       "description": "麦壳思官方技能集:AI 提示词工程、图转提示词与二创、物体多视图、室内多机位、室外多机位 SOP 全家桶",
-      "version": "1.3.1"
+      "version": "1.4.0"
     }
   ]
 }
