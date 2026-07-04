@@ -6,18 +6,18 @@ Full-pipeline Claude skills for AI technical art — concept art to 3D assets & 
 <p align="center">
   <a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat&logo=github&label=stars&color=e05d44" alt="stars"></a>
   <img src="https://img.shields.io/badge/dynamic/json?label=release&query=%24.metadata.version&prefix=v&url=https%3A%2F%2Fraw.githubusercontent.com%2Fziwuxin1%2FMAXs-Claude-Plugins%2Fmain%2F.claude-plugin%2Fmarketplace.json&color=fe7d37" alt="release">
-  <img src="https://img.shields.io/badge/skills-5-2ea44f" alt="skills">
+  <img src="https://img.shields.io/badge/skills-6-2ea44f" alt="skills">
   <img src="https://img.shields.io/github/last-commit/ziwuxin1/MAXs-Claude-Plugins?label=updated&color=9f7be1" alt="updated">
   <br>
   <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Cowork-1f6feb" alt="platform">
-  <img src="https://img.shields.io/badge/models-Nano%20Banana%20%2F%20Pro%20%2F%202-8957e5" alt="models">
+  <img src="https://img.shields.io/badge/models-Nano%20Banana%20%2F%20Pro%20%2F%202%20%2F%20Midjourney-8957e5" alt="models">
 </p>
 
 # MAXs Claude Plugins
 
 MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)。
 
-五个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
+六个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
 
 ## 安装
 
@@ -32,7 +32,7 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 
 **更新:** `/plugin marketplace update maxs` 后更新 maxs-skills,即可拉到最新版全部 skill。
 
-## 五件套速查
+## 六件套速查
 
 | Skill | 一句话定位 | 什么时候用 | 产出 |
 |-------|-----------|-----------|------|
@@ -41,6 +41,7 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 | `maxs-multiview-reference` | 单物体多视图 | 一件资产要出前后左右俯视(建模施工图 / Hyper3D 喂图) | 保持句 + 八视角指令组 + Hyper3D 槽位对照 |
 | `maxs-interior-multiangle` | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
 | `maxs-exterior-multiangle` | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
+| `maxs-seamless-texture` | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
 
 ## 各 Skill 详解
 
@@ -95,6 +96,16 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - **实测沉淀**:开阔场景复制偏置强,侧打用"近/远法"点名谁在前景;涂鸦只写"痕迹"不写文字
 - references:`exterior-shot-library`(含废料场完整实测案例)
 
+### 6. maxs-seamless-texture · Midjourney 无缝 PBR 贴图 SOP
+
+系列里唯一走 **Midjourney** 的 skill(其余走香蕉)。内核:贴图不是"好看的图",是"能平铺、无光影、进得了 Substance 的平整材质"——把 MJ 从艺术家按回材质扫描仪。
+
+- **四件套约束**(缺一出废图):正交满幅 / 平光无影 / 去风格化(`--style raw` + 低 `--s`)/ 可平铺(`--tile --ar 1:1`)
+- **全流程**:MJ `--tile` 出无缝图 → Seamless Pattern Checker 验接缝(**别 upscale**)→ Substance Sampler(Image-to-Material + delight 去残留光影 + auto-tiling 兜底)→ 导出 UE5(**DirectX 法线** / ORM 打包)→ 引擎里平铺验证
+- **四品类卡**:地形自然 / 建筑硬表面 / 织物皮革有机 / 科幻做旧,每类给能直接发的提示词 + 正反例;共坑一句话:母题别太大、别有独大特征(否则平铺复读)
+- **写法与其它 skill 相反**:MJ 是 tag+参数模型,英文 tag、逗号堆叠、`--参数` 尾巴照写(香蕉那套"中文整句、无参数"在这里不适用)
+- references:`texture-prompt-cards`(四品类模板+案例) / `substance-sampler-sop`(Sampler→UE5 完整 SOP)
+
 ## 推荐组合工作流
 
 **资产线(单件):**
@@ -103,12 +114,16 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 **场景线(空间):**
 场景概念图(自己生成或 `maxs-image-to-prompt` 反推改造)→ `maxs-interior-multiangle` / `maxs-exterior-multiangle` 出机位组 → PureRef 参考板 → UE5 搭建
 
+**贴图线(材质):**
+材质需求 → `maxs-seamless-texture` 写 MJ `--tile` 提示词 → TAPNOW 出无缝图 → Substance Sampler 出 PBR → UE5
+
 ## 通用工具事实(香蕉系,2026-06 核实)
 
 - Nano Banana / Banana Pro / 香蕉2 均**不支持 seed**,也**没有负面提示参数**——一致性靠「参考图 + 同一对话」,排除项写成自然语言句子
 - 对话式中文完整句子优于英文关键词堆叠;hex 色值有效但要绑着物件写
 - 香蕉2 快 3-5 倍、约 95% 画质、中文理解更强:抽卡用香蕉2,精修用 Pro
 - 每个角度/机位抽 2-4 张再判断;图上具体文字(招牌/涂鸦)不要试图保留
+- ⚠️ **例外**:`maxs-seamless-texture` 走 **Midjourney**(非香蕉),用英文 tag + `--tile` / `--style raw` / `--s` / `--no` 等参数,写法与上面相反——贴图 PBR 链路专用,详见该 skill
 
 ## 迭代
 
