@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAXs 一键去除GPT生图高亮噪点"
+  short_description: "减少生图白色亮点与高光噪声，保留主体结构、自然材质和哑光体积感"
+  default_prompt: "使用 $maxs-gpt-highlight-cleanup 清理这张图片里的高亮噪点和密集白斑，保留原有结构和自然材质。"

@@ -6,7 +6,7 @@ Full-pipeline Claude skills for AI technical art — concept art to 3D assets & 
 <p align="center">
   <a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat&logo=github&label=stars&color=e05d44" alt="stars"></a>
   <img src="https://img.shields.io/badge/dynamic/json?label=release&query=%24.metadata.version&prefix=v&url=https%3A%2F%2Fraw.githubusercontent.com%2Fziwuxin1%2FMAXs-Claude-Plugins%2Fmain%2F.claude-plugin%2Fmarketplace.json&color=fe7d37" alt="release">
-  <img src="https://img.shields.io/badge/skills-6-2ea44f" alt="skills">
+  <img src="https://img.shields.io/badge/skills-7-2ea44f" alt="skills">
   <img src="https://img.shields.io/github/last-commit/ziwuxin1/MAXs-Claude-Plugins?label=updated&color=9f7be1" alt="updated">
   <br>
   <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Cowork-1f6feb" alt="platform">
@@ -17,7 +17,7 @@ Full-pipeline Claude skills for AI technical art — concept art to 3D assets & 
 
 MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)。
 
-六个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
+七个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图，并提供 GPT 生图高亮噪点清理。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
 
 ## 安装
 
@@ -32,7 +32,7 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 
 **更新:** `/plugin marketplace update maxs` 后更新 maxs-skills,即可拉到最新版全部 skill。
 
-## 六件套速查
+## 七件套速查
 
 | Skill | 一句话定位 | 什么时候用 | 产出 |
 |-------|-----------|-----------|------|
@@ -42,6 +42,8 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 | `maxs-interior-multiangle` | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
 | `maxs-exterior-multiangle` | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
 | `maxs-seamless-texture` | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
+
+| `maxs-gpt-highlight-cleanup` | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
 
 ## 各 Skill 详解
 
@@ -98,13 +100,23 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 
 ### 6. maxs-seamless-texture · Midjourney 无缝 PBR 贴图 SOP
 
-系列里唯一走 **Midjourney** 的 skill(其余走香蕉)。内核:贴图不是"好看的图",是"能平铺、无光影、进得了 Substance 的平整材质"——把 MJ 从艺术家按回材质扫描仪。
+系列里走 **Midjourney** 的贴图 skill。内核:贴图不是"好看的图",是"能平铺、无光影、进得了 Substance 的平整材质"——把 MJ 从艺术家按回材质扫描仪。
 
 - **四件套约束**(缺一出废图):正交满幅 / 平光无影 / 去风格化(`--style raw` + 低 `--s`)/ 可平铺(`--tile --ar 1:1`)
 - **全流程**:MJ `--tile` 出无缝图 → Seamless Pattern Checker 验接缝(**别 upscale**)→ Substance Sampler(Image-to-Material + delight 去残留光影 + auto-tiling 兜底)→ 导出 UE5(**DirectX 法线** / ORM 打包)→ 引擎里平铺验证
 - **四品类卡**:地形自然 / 建筑硬表面 / 织物皮革有机 / 科幻做旧,每类给能直接发的提示词 + 正反例;共坑一句话:母题别太大、别有独大特征(否则平铺复读)
 - **写法与其它 skill 相反**:MJ 是 tag+参数模型,英文 tag、逗号堆叠、`--参数` 尾巴照写(香蕉那套"中文整句、无参数"在这里不适用)
 - references:`texture-prompt-cards`(四品类模板+案例) / `substance-sampler-sop`(Sampler→UE5 完整 SOP)
+
+### 7. maxs-gpt-highlight-cleanup · MAXs 一键去除GPT生图高亮噪点
+
+对已经认可的图片做定向编辑：减少密集白色碎斑与闪点，保留主体结构、自然材质和体积感。
+
+- 默认保留构图、几何、主要裂口和配件，只压低抢眼亮点，不整体压黑或模糊图片。
+- 去噪后默认停止，不自动锐化或加回细节；另存版本，支持回到用户认可的结果。
+- 附真实风化石阶案例与有效提示词：用户试过补细节版后，最终选回更干净的哑光版。
+- 需要客户端提供图像编辑工具才能直接修图；安装技能不会额外赋予模型生图能力。当前案例使用内置 image_gen，未验证所有模型的效果。
+- [技能入口](skills/maxs-gpt-highlight-cleanup/SKILL.md) · [实际案例](skills/maxs-gpt-highlight-cleanup/references/stone-stairs-case.md)
 
 ## 推荐组合工作流
 
@@ -124,6 +136,8 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - 香蕉2 快 3-5 倍、约 95% 画质、中文理解更强:抽卡用香蕉2,精修用 Pro
 - 每个角度/机位抽 2-4 张再判断;图上具体文字(招牌/涂鸦)不要试图保留
 - ⚠️ **例外**:`maxs-seamless-texture` 走 **Midjourney**(非香蕉),用英文 tag + `--tile` / `--style raw` / `--s` / `--no` 等参数,写法与上面相反——贴图 PBR 链路专用,详见该 skill
+
+高亮噪点清理技能使用当前客户端的图像编辑工具，不沿用上述香蕉或 Midjourney 专用参数。
 
 ## 迭代
 
