@@ -6,7 +6,7 @@ Full-pipeline Claude skills for AI technical art — concept art to 3D assets & 
 <p align="center">
   <a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat&logo=github&label=stars&color=e05d44" alt="stars"></a>
   <img src="https://img.shields.io/badge/dynamic/json?label=release&query=%24.metadata.version&prefix=v&url=https%3A%2F%2Fraw.githubusercontent.com%2Fziwuxin1%2FMAXs-Claude-Plugins%2Fmain%2F.claude-plugin%2Fmarketplace.json&color=fe7d37" alt="release">
-  <img src="https://img.shields.io/badge/skills-7-2ea44f" alt="skills">
+  <img src="https://img.shields.io/badge/skills-8-2ea44f" alt="skills">
   <img src="https://img.shields.io/github/last-commit/ziwuxin1/MAXs-Claude-Plugins?label=updated&color=9f7be1" alt="updated">
   <br>
   <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Cowork-1f6feb" alt="platform">
@@ -17,7 +17,7 @@ Full-pipeline Claude skills for AI technical art — concept art to 3D assets & 
 
 MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)。
 
-七个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图，并提供 GPT 生图高亮噪点清理。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
+八个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图，并提供 GPT 生图高亮噪点清理与 AI 细节重建 4K 高清化。全部基于麦壳思真实项目与课程实测沉淀,每条 SOP 都带踩坑案例和应对话术。
 
 ## 安装
 
@@ -32,7 +32,7 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 
 **更新:** `/plugin marketplace update maxs` 后更新 maxs-skills,即可拉到最新版全部 skill。
 
-## 七件套速查
+## 八件套速查
 
 | Skill | 一句话定位 | 什么时候用 | 产出 |
 |-------|-----------|-----------|------|
@@ -42,8 +42,8 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 | `maxs-interior-multiangle` | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
 | `maxs-exterior-multiangle` | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
 | `maxs-seamless-texture` | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
-
 | `maxs-gpt-highlight-cleanup` | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
+| `maxs-gpt-detail-rebuild-4k` | GPT AI 细节重建4K高清化 | 图片要真正高清化、补材质细节，不能只是像素放大 | AI 原始增强图 + 核验尺寸的 4K 导出图 + 处理记录 |
 
 ## 各 Skill 详解
 
@@ -118,6 +118,16 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - 需要客户端提供图像编辑工具才能直接修图；安装技能不会额外赋予模型生图能力。当前案例使用内置 image_gen，未验证所有模型的效果。
 - [技能入口](skills/maxs-gpt-highlight-cleanup/SKILL.md) · [实际案例](skills/maxs-gpt-highlight-cleanup/references/stone-stairs-case.md)
 
+### 8. maxs-gpt-detail-rebuild-4k · GPT AI 细节重建4K高清化
+
+先用图生图重建可信的材质与边缘细节，再读取实际分辨率并导出目标尺寸。区分普通插值放大、AI 重建和增强后的 4K 导出，不把“写了 4K 提示词”当作原生 4K 输出的证据。
+
+- 保留已认可的造型、镜头、主要破损和配件分布，针对瓦片、木纹、苔藓与落叶等实际材质增强。
+- 附屋顶三视图真实案例：用户拒绝纯放大，认可 AI 细节重建后导出 4K 的结果；局部重绘与多视图一致性仍需检查。
+- 原图、AI 原始增强图和最终导出分别保存；附 PNG 尺寸导出脚本，保留比例与透明度并记录实测尺寸。脚本本身不做 AI 增强。
+- 需要当前客户端提供图像编辑能力；无工具时说明限制，不擅自切到付费 API。
+- [技能入口](skills/maxs-gpt-detail-rebuild-4k/SKILL.md) · [实际案例](skills/maxs-gpt-detail-rebuild-4k/references/roof-case.md)
+
 ## 推荐组合工作流
 
 **资产线(单件):**
@@ -129,6 +139,9 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 **贴图线(材质):**
 材质需求 → `maxs-seamless-texture` 写 MJ `--tile` 提示词 → TAPNOW 出无缝图 → Substance Sampler 出 PBR → UE5
 
+**高清交付线（按需）：**
+已认可图片 / 单视图裁片 → `maxs-gpt-detail-rebuild-4k` 重建细节 → 检查造型与材质 → 核验尺寸 → 导出 4K 并说明是否包含放大步骤
+
 ## 通用工具事实(香蕉系,2026-06 核实)
 
 - Nano Banana / Banana Pro / 香蕉2 均**不支持 seed**,也**没有负面提示参数**——一致性靠「参考图 + 同一对话」,排除项写成自然语言句子
@@ -137,7 +150,7 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - 每个角度/机位抽 2-4 张再判断;图上具体文字(招牌/涂鸦)不要试图保留
 - ⚠️ **例外**:`maxs-seamless-texture` 走 **Midjourney**(非香蕉),用英文 tag + `--tile` / `--style raw` / `--s` / `--no` 等参数,写法与上面相反——贴图 PBR 链路专用,详见该 skill
 
-高亮噪点清理技能使用当前客户端的图像编辑工具，不沿用上述香蕉或 Midjourney 专用参数。
+高亮噪点清理和 AI 细节重建技能使用当前客户端的图像编辑工具，不沿用上述香蕉或 Midjourney 专用参数。去噪后不自动追加细节重建，按用户实际需求选择。
 
 ## 迭代
 
