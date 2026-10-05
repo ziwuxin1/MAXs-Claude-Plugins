@@ -1,4 +1,4 @@
 interface:
-  display_name: "MAXs · GPT 高亮清理"
-  short_description: "减少生图白色亮点与高光噪声，保留主体结构、自然材质和哑光体积感"
+  display_name: "MAXs · GPT 高亮清理 | GPT Highlight Cleanup"
+  short_description: "压低白点高光并保留细节 / Reduce bright speckles while preserving detail"
   default_prompt: "使用 $maxs-gpt-highlight-cleanup 清理这张图片里的高亮噪点和密集白斑，保留原有结构和自然材质。"

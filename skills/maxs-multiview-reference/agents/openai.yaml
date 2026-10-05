@@ -1,4 +1,4 @@
 interface:
-  display_name: "MAXs · 物体多视图"
-  short_description: "为同一资产编写多视角参考图指令，保持造型、材质和配件分布的一致性"
+  display_name: "MAXs · 物体多视图 | Object Multiview"
+  short_description: "同一资产的多视角参考指令 / Consistent object multiview prompts"
   default_prompt: "使用 $maxs-multiview-reference，为我的资产制作保持造型一致的多视角参考图指令。"

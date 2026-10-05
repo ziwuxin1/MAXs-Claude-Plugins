@@ -1,4 +1,4 @@
 interface:
-  display_name: "MAXs · MJ 无缝贴图"
-  short_description: "编写 Midjourney 无缝材质提示词，并指导贴图检查和 Substance 到引擎的流程"
+  display_name: "MAXs · MJ 无缝贴图 | MJ Seamless Texture"
+  short_description: "无缝材质提示词与 PBR 流程 / Tileable texture prompts and PBR workflow"
   default_prompt: "使用 $maxs-seamless-texture，为我的材质需求编写 Midjourney 无缝贴图提示词及验证流程。"

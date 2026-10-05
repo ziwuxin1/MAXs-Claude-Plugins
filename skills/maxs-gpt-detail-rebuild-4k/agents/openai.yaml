@@ -1,4 +1,4 @@
 interface:
-  display_name: "MAXs · GPT 细节重建 4K"
-  short_description: "先重建材质与边缘细节，再核验并导出4K，明确区别于单纯像素放大"
+  display_name: "MAXs · GPT 细节重建 4K | GPT Detail Rebuild 4K"
+  short_description: "重建材质细节并核验 4K 导出 / Rebuild detail and verify 4K export"
   default_prompt: "使用 $maxs-gpt-detail-rebuild-4k 对这张已认可图片做 AI 细节重建并导出 4K，保留造型与构图，核实实际分辨率并说明处理方式。"
