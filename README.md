@@ -1,195 +1,263 @@
-<p align="center"><img src="assets/maxs-logo.png" width="420" alt="MAXs"></p>
+<p align="center"><a href="https://www.maxsacademy.com/en"><img src="assets/maxs-logo.png" width="420" alt="MAXs Academy"></a></p>
 
-<p align="center"><b>AI 技术美术3D场景全流程 Claude 技能集 · 从一张概念图到 3D 资产 / 场景</b><br>
-Full-pipeline Claude skills for AI technical art — concept art to 3D assets & scenes</p>
+<h1 align="center">MAXs Skills</h1>
+
+<p align="center"><b>AI workflows for technical art, 3D assets, environments, and materials — for any LLM.</b></p>
 
 <p align="center">
-  <a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat&logo=github&label=stars&color=e05d44" alt="stars"></a>
-  <img src="https://img.shields.io/badge/dynamic/json?label=release&query=%24.metadata.version&prefix=v&url=https%3A%2F%2Fraw.githubusercontent.com%2Fziwuxin1%2FMAXs-Claude-Plugins%2Fmain%2F.claude-plugin%2Fmarketplace.json&color=fe7d37" alt="release">
-  <img src="https://img.shields.io/badge/skills-10-2ea44f" alt="skills">
-  <img src="https://img.shields.io/github/last-commit/ziwuxin1/MAXs-Claude-Plugins?label=updated&color=9f7be1" alt="updated">
-  <br>
-  <img src="https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Cowork-1f6feb" alt="platform">
-  <img src="https://img.shields.io/badge/models-Nano%20Banana%20%2F%20Pro%20%2F%202%20%2F%20Midjourney-8957e5" alt="models">
+<a href="https://www.maxsacademy.com/en">Official Website</a> ·
+<a href="#english">English</a> ·
+<a href="#chinese">中文</a> ·
+<a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/tree/main/skills">Browse Skills</a>
 </p>
 
-# MAXs Claude Plugins
+<p align="center">
+<img src="https://img.shields.io/badge/skills-10-2ea44f" alt="10 skills">
+<img src="https://img.shields.io/badge/workflows-model%20agnostic-1f6feb" alt="Model-agnostic workflows">
+<a href="https://github.com/ziwuxin1/MAXs-Claude-Plugins/stargazers"><img src="https://img.shields.io/github/stars/ziwuxin1/MAXs-Claude-Plugins?style=flat" alt="GitHub stars"></a>
+</p>
 
-MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)。
+<a id="english"></a>
 
-十个 skill 覆盖 AI 技术美术「从一张概念图到 3D 资产/场景」的全链路:提示词工程与资产拆解 → 图反推与二创 → 物体多视图 → 室内多机位 → 室外多机位 → 无缝 PBR 贴图，并提供 GPT 生图高亮噪点清理、AI 细节重建 4K 高清化、已有雕刻贴图转写实 Albedo，以及 GPT 从文字或参考直接生成 Albedo。技能结合麦壳思真实项目与课程经验；已实测案例与待实测工作模板分别标注。
+## English
 
-## 安装
+### What is MAXs Skills?
 
-**Claude Code:**
+**MAXs Skills is a collection of reusable AI instructions, prompt templates, production workflows, and quality checks from [MAXs Academy](https://www.maxsacademy.com/en).** Its 10 skills support the journey from a concept image to 3D asset references, environment planning, and game material textures.
 
-```
+The workflows are designed for **any large language model that can follow the supplied instructions**: Claude, GPT, Gemini, open-weight models, and other assistants. Use a compatible skills/plugin system, or load the Markdown instructions into your preferred assistant yourself.
+
+The repository retains the name `MAXs-Claude-Plugins` to preserve existing links and installations. **The skills are not exclusive to Claude.**
+
+### Compatibility
+
+| Layer | What it provides |
+| --- | --- |
+| Language model | Interprets the instructions, develops prompts, and guides the workflow. The core methods are model-agnostic. |
+| Host application | Loads files, registers skills, or installs the plugin. Native installation depends on the application's supported format. |
+| Execution tools | Generate/edit images, process files, or run scripts. These capabilities must be available in the host or connected services. |
+
+An assistant can use MAXs instructions without supporting the marketplace format. Installing a skill does not give a text-only model vision, image generation, file access, or code execution.
+
+Names containing **GPT** or **MJ** identify particular image workflows. Other LLMs can help organize those workflows, but producing the images requires the corresponding tools. Tool-specific parameters belong to the intended tool. Compatibility does not mean every model has been individually tested or will produce identical results.
+
+### Get started with any LLM
+
+1. Download or clone this repository.
+2. Choose a skill below and open its `SKILL.md`.
+3. Give your assistant that file and the referenced documents needed for your task. If it can read local files, provide the skill's path instead.
+4. Add your request, references, and output requirements.
+
+Keep the complete `skills/` directory when possible. Some skills share standards: GPT to Albedo, for example, references SD to Albedo.
+
+> Follow the provided MAXs skill and its quality requirements. Use my reference to create a neutral, weathered brick Albedo. Preserve any version I approve, repair only the requested areas, and check both tiling axes and the four-corner junction before delivery. Explain any required tools that are unavailable.
+
+Most detailed skill instructions are currently in Chinese. You can ask the assistant to explain and deliver results in your preferred language.
+
+### Plugin installation
+
+**Claude Code** — run inside the client:
+
+```text
 /plugin marketplace add ziwuxin1/MAXs-Claude-Plugins
 /plugin install maxs-skills@maxs
 ```
 
-**Claude 桌面端(Cowork):** 设置 → 功能 → 添加技能市场,粘贴本仓库链接,Sync 后安装 **maxs-skills** 插件。
+To update, run `/plugin marketplace update maxs`, then update `maxs-skills` through the client's plugin controls.
 
-**更新:** `/plugin marketplace update maxs` 后更新 maxs-skills,即可拉到最新版全部 skill。
+**Codex** — run in your terminal:
 
-## 十件套速查
+```shell
+codex plugin marketplace add https://github.com/ziwuxin1/MAXs-Claude-Plugins
+codex plugin add maxs-skills@maxs
+```
 
-| Skill / 调用 ID | 菜单显示名 | 一句话定位 | 什么时候用 | 产出 |
-|-------|-----------|-----------|-----------|------|
-| `maxs-asset-breakdown` | MAXs · 资产拆解 \| Asset Breakdown | 提示词工程总纲 + 资产拆解陈列 | 拿到概念图要拆出部件做白底陈列图/重建喂图,或任何提示词写不稳的时候 | 资产陈列图/白底图提示词 + 复用包 |
-| `maxs-image-to-prompt` | MAXs · 图转提示词 \| Image to Prompt | 图转提示词 v2:题材迁移 + 起点反推 | 把好构图搬到新题材(语境锁死),或借网图反推自己的起点;同场景变体请走多机位三件套 | 骨架卡 + 挂图迁移定稿模板 / 带【变量】起点模板 |
-| `maxs-multiview-reference` | MAXs · 物体多视图 \| Object Multiview | 单物体多视图 | 一件资产要出前后左右俯视(建模施工图 / Hyper3D 喂图) | 保持句 + 八视角指令组 + Hyper3D 槽位对照 |
-| `maxs-interior-multiangle` | MAXs · 室内多机位 \| Interior Views | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
-| `maxs-exterior-multiangle` | MAXs · 室外多机位 \| Exterior Views | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
-| `maxs-seamless-texture` | MAXs · MJ 无缝贴图 \| MJ Seamless Texture | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
-| `maxs-gpt-highlight-cleanup` | MAXs · GPT 高亮清理 \| GPT Highlight Cleanup | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
-| `maxs-gpt-detail-rebuild-4k` | MAXs · GPT 细节重建 4K \| GPT Detail Rebuild 4K | GPT AI 细节重建4K高清化 | 图片要真正高清化、补材质细节，不能只是像素放大 | AI 原始增强图 + 核验尺寸的 4K 导出图 + 处理记录 |
-| `maxs-SD-to-Albedo` | MAXs · SD 转 Albedo \| SD to Albedo | 雕刻贴图转写实 Albedo | 已有 SD / ZBrush Height、Normal、AO，要保留布局并按参考生成基色 | Albedo + 按需 Roughness + 实测尺寸与验证记录 |
-| `maxs-GPT-to-Albedo` | MAXs · GPT 生成 Albedo \| GPT to Albedo | GPT 直接生成 Albedo | 从文字或外观参考直接出颜色贴图，无需结构贴图 | Albedo 图片 + 实测尺寸 + 细节与平铺检查记录 |
+Update an existing installation:
 
-菜单显示名统一使用 **MAXs · 中文名称 | English Name**，简短说明同样提供中英文，GPT、SD、MJ 等缩写保持大写；调用 ID 和目录保持兼容，已有 `$skill-name` 用法不变。插件名称 `maxs-skills` 是安装标识，不重复放进显示名。
+```shell
+codex plugin marketplace upgrade maxs
+codex plugin add maxs-skills@maxs
+```
 
-若菜单同时出现 `Anthropic Skills: Maxs …`，这是另一插件中的副本，不是本插件重复注册。本插件提供 10 个技能；更新本插件不会删除其它插件的副本。整理重复项时先核对来源及其独有技能，避免为去重卸载仍在使用的其它功能。
+This repository's root-level plugin layout has been installed successfully with Codex CLI **0.160.0**. Version **0.141.0** failed to discover it; update the CLI if the marketplace appears empty.
 
-## 各 Skill 详解
+For other desktop clients, use their marketplace or skill-import interface if supported. Otherwise, follow the manual instructions above.
 
-### 1. maxs-asset-breakdown · 提示词工程 SOP(总纲)
+### The 10 skills
 
-系列的地基。内核:可复用的提示词是经过「踩坑 → 过度纠正 → 简化收敛」三步迭代后留下的最简骨架。
+| Skill | Use it for | Main output |
+| --- | --- | --- |
+| [Asset Breakdown](skills/maxs-asset-breakdown/SKILL.md) | Breaking a concept into assets and reusable prompt structures | Asset-sheet prompts and a reusable prompt package |
+| [Image to Prompt](skills/maxs-image-to-prompt/SKILL.md) | Transferring a composition to a new subject or deriving an editable starting prompt | Composition analysis and prompt templates |
+| [Object Multiview](skills/maxs-multiview-reference/SKILL.md) | Planning consistent views of one asset for modeling or reconstruction | View instructions and consistency checks |
+| [Interior Views](skills/maxs-interior-multiangle/SKILL.md) | Exploring camera positions in the same interior | Camera prompts that preserve spatial identity |
+| [Exterior Views](skills/maxs-exterior-multiangle/SKILL.md) | Exploring the same outdoor location from different cameras | Camera prompts with coherent site and sunlight relationships |
+| [MJ Seamless Texture](skills/maxs-seamless-texture/SKILL.md) | Preparing Midjourney texture prompts and a Substance-to-engine workflow | Tileable-texture prompts and PBR workflow guidance |
+| [GPT Highlight Cleanup](skills/maxs-gpt-highlight-cleanup/SKILL.md) | Reducing excessive white specks and highlight noise in an approved image | Targeted edits, or prompts when tools are unavailable |
+| [GPT Detail Rebuild 4K](skills/maxs-gpt-detail-rebuild-4k/SKILL.md) | Rebuilding credible material detail before a verified-size export | Enhanced image, size verification, and export record |
+| [SD to Albedo](skills/maxs-SD-to-Albedo/SKILL.md) | Creating base color from SD/ZBrush Height, Normal, and AO maps | Structure-guided Albedo; Roughness only when requested |
+| [GPT to Albedo](skills/maxs-GPT-to-Albedo/SKILL.md) | Generating base color directly from text or appearance references | Albedo with resolution, detail, and tiling checks |
 
-- **五变量黄金模板**:把概念图中的结构部件拆成大中小排布的资产陈列图,五个可替换变量(场景类型/数量/光照/材质细节/目标风格)+ 三个不能动的骨架句("白背景。无阴影"必须放最后)
-- **三步迭代法**:试水(短)→ 纠错(加)→ 简化(砍回最短)——终版比中间版短
-- **已知 bug 模式表**:幽灵半成品、物件染色、白底变灰、比例错乱、风格漂移、抠图粘连,逐个给应对
-- **S/A/B/C 分级 + 最小复用包**:对外/教学素材必须 A 级以上
-- references:`prompt-templates`(模板库) / `iteration-cases`(迭代案例) / `output-quality-checklist`(学生自查清单) / `reuse-package-template`(复用包模板)
+Linked folder names are the stable skill IDs. Preserve their spelling and capitalization, including `maxs-SD-to-Albedo` and `maxs-GPT-to-Albedo`. Native menus have bilingual display names; their order is independent of this English-first README.
 
-### 2. maxs-image-to-prompt · 题材迁移与起点反推 SOP (v2)
+### Suggested workflows
 
-v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三件套;本 skill 只管"目标图不存在"的两件事。
+- **Assets:** concept → Asset Breakdown → Object Multiview → modeling/reconstruction → engine review.
+- **Environments:** concept/reference → Image to Prompt as needed → Interior or Exterior Views → reference board → scene construction.
+- **Sculpted materials:** Height / Normal / AO + appearance reference → SD to Albedo → review → optional Roughness → channel alignment and tiling checks.
+- **Direct Albedo generation:** brief/reference → GPT to Albedo → color, detail, and tiling checks → approved base color.
+- **Midjourney materials:** MJ Seamless Texture → generation → tiling checks → Substance material processing → engine review.
+- **Image finishing:** approved image → Highlight Cleanup or Detail Rebuild 4K as requested → local inspection and verified-size export.
 
-- **模式 A·挂图题材迁移**:原图当参考图上传,骨架由图保证,文字只换皮肉+锁语境。**语境锁死**:古代进古代出,跨语境迁移仅当用户显式点名
-- **模式 B·起点反推**:把网图翻成带【可改变量】标记的提示词模板,填完变量就是你自己的第一版
-- **骨架卡**两层(骨架层:布局/视线引导/冷暖对冲;题材层:含时代语境字段)
-- **抽卡纪律**(多轮实测沉淀):单点失败先同提示词重抽 2-3 次再改词;补丁一次只加一个;终版比中间版短——堆约束的"修正版"实测全面劣于原版
-- 精修阶段用**最小变更链**:满意图定为新基准,"只做一件事"式指令逐维微调
-- references:`skeleton-card`(模板+同语境/跨语境双案例)
+### Quality principles
 
-### 3. maxs-multiview-reference · 图生图多视图参考 SOP
+- **Preserve the approved image.** Target the requested correction instead of redesigning the material.
+- **Keep colors credible.** Neutral does not mean washed out; aging does not mean blackening everything.
+- **Treat Albedo as intrinsic color.** Avoid baked shadows, AO, highlights, and bright bevels.
+- **Verify seamlessness.** Inspect a 2×2 repeat, half-width/half-height offset, both axes, and native-resolution corners. Matching edge pixels alone is insufficient.
+- **Report actual dimensions.** Distinguish native output, interpolation, AI detail reconstruction, and final export.
+- **Separate evidence from targets.** “AAA” and “ArtStation” describe visual goals, not certification. Engine and multi-channel checks remain separate.
 
-一件资产 → 前后左右俯视一组。内核:多视图不是重新生成,是「同一个东西换镜头拍」。
+See the [approved brick case](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md), [seam-repair case](skills/maxs-SD-to-Albedo/references/seam-repair.md), and [detail-rebuild case](skills/maxs-gpt-detail-rebuild-4k/references/roof-case.md). Tested examples and unvalidated templates are identified separately.
 
-- **黄金公式**:上传基准图 + [保持不变:风格/配色/结构] + [视角指令 ← 唯一变量] + [拍平无近大远小]
-- **八视角指令库** + **Hyper3D(Rodin) 方向槽位对照表**(Front Left/Back/UP…,标错方向比不标更伤)
-- **实测沉淀**:方位词模型犯懒 → 改说"地标在画面哪边";地标位置几何不可行时模型会**镜像冒充转角**(喂重建必废)→ 横长物体用"近/远"描述 + 并排比对自查
-- **工具事实**:香蕉系无 seed、无负面提示参数;一致性靠参考图+同一对话;香蕉2 跑量、Pro 精修
-- references:`view-prompt-library`
+### Repository and updates
 
-### 4. maxs-interior-multiangle · 室内场景多机位 SOP
+```text
+.claude-plugin/       Plugin and marketplace manifests
+assets/              Branding assets
+skills/
+  <skill-id>/
+    SKILL.md         Skill instructions
+    agents/          Host-specific menu metadata, where provided
+    references/      Templates and examples, where provided
+    scripts/         Processing helpers, where provided
+    tests/           Script checks, where provided
+```
 
-一张内景概念图 → 整组机位。内核:派一个摄影师走进这个空间——空间身份锁死,镜头在里面走位。
+Pull the latest repository for manual use, or refresh your installed marketplace. Read individual skill changelogs where available. If duplicate menu entries appear, check which plugin supplied them before removing anything.
 
-- **机位前置黄金公式**(顺序是生死线,实测保持句在前会导致整组复刻):机位句前置 → 构图差异声明 → 逐机位光源推演 → 空间身份保持句殿后 → "不要复刻参考图的构图"收尾
-- **十机位指令库**:定场/反打/左右侧打/仰拍/回廊俯瞰/轴线推近/特写/正仰视天花板/正俯视地板(后两个配合空间六面 3D 重建喂图)
-- **逐机位光源推演**是室内命门:反打=逆光剪影、仰拍=天光入镜,光不是复制的,是按物理重新描述的
-- **交付硬规范**:每条提示词完整自含,禁止"同样的要求"省略式交付
-- references:`interior-shot-library`(含佛殿完整实测案例)
+### About MAXs
 
-### 5. maxs-exterior-multiangle · 室外场景多机位 SOP
+[MAXs Academy](https://www.maxsacademy.com/en) provides game art, design, and technical art education. These skills share practical methods developed through MAXs project and teaching work.
 
-一张外景概念图 → 整组机位。内核:同一片场地、同一个太阳——每张图的影子方向都要能用"太阳在那边"解释通。
-
-- **太阳/影子锚点**:从基准图影子反推太阳方位,每个机位按同一个太阳重推影子落向(反打=影子朝镜头拉长)
-- **开放边界锁定**:拉远/反打时显式锁"地平线上没有城市和山脉",防模型脑补天际线
-- **九机位指令库**:含无人机高角度、远景大全景、穿行 POV、黄昏氛围变体(唯一允许改太阳的机位)
-- **实测沉淀**:开阔场景复制偏置强,侧打用"近/远法"点名谁在前景;涂鸦只写"痕迹"不写文字
-- references:`exterior-shot-library`(含废料场完整实测案例)
-
-### 6. maxs-seamless-texture · Midjourney 无缝 PBR 贴图 SOP
-
-系列里走 **Midjourney** 的贴图 skill。内核:贴图不是"好看的图",是"能平铺、无光影、进得了 Substance 的平整材质"——把 MJ 从艺术家按回材质扫描仪。
-
-- **四件套约束**(缺一出废图):正交满幅 / 平光无影 / 去风格化(`--style raw` + 低 `--s`)/ 可平铺(`--tile --ar 1:1`)
-- **全流程**:MJ `--tile` 出无缝图 → Seamless Pattern Checker 验接缝(**别 upscale**)→ Substance Sampler(Image-to-Material + delight 去残留光影 + auto-tiling 兜底)→ 导出 UE5(**DirectX 法线** / ORM 打包)→ 引擎里平铺验证
-- **四品类卡**:地形自然 / 建筑硬表面 / 织物皮革有机 / 科幻做旧,每类给能直接发的提示词 + 正反例;共坑一句话:母题别太大、别有独大特征(否则平铺复读)
-- **写法与其它 skill 相反**:MJ 是 tag+参数模型,英文 tag、逗号堆叠、`--参数` 尾巴照写(香蕉那套"中文整句、无参数"在这里不适用)
-- references:`texture-prompt-cards`(四品类模板+案例) / `substance-sampler-sop`(Sampler→UE5 完整 SOP)
-
-### 7. maxs-gpt-highlight-cleanup · MAXs 一键去除GPT生图高亮噪点
-
-对已经认可的图片做定向编辑：减少密集白色碎斑与闪点，保留主体结构、自然材质和体积感。
-
-- 默认保留构图、几何、主要裂口和配件，只压低抢眼亮点，不整体压黑或模糊图片。
-- 去噪后默认停止，不自动锐化或加回细节；另存版本，支持回到用户认可的结果。
-- 附真实风化石阶案例与有效提示词：用户试过补细节版后，最终选回更干净的哑光版。
-- 需要客户端提供图像编辑工具才能直接修图；安装技能不会额外赋予模型生图能力。当前案例使用内置 image_gen，未验证所有模型的效果。
-- [技能入口](skills/maxs-gpt-highlight-cleanup/SKILL.md) · [实际案例](skills/maxs-gpt-highlight-cleanup/references/stone-stairs-case.md)
-
-### 8. maxs-gpt-detail-rebuild-4k · GPT AI 细节重建4K高清化
-
-先用图生图重建可信的材质与边缘细节，再读取实际分辨率并导出目标尺寸。区分普通插值放大、AI 重建和增强后的 4K 导出，不把“写了 4K 提示词”当作原生 4K 输出的证据。
-
-- 保留已认可的造型、镜头、主要破损和配件分布，针对瓦片、木纹、苔藓与落叶等实际材质增强。
-- 附屋顶三视图真实案例：用户拒绝纯放大，认可 AI 细节重建后导出 4K 的结果；局部重绘与多视图一致性仍需检查。
-- 原图、AI 原始增强图和最终导出分别保存；附 PNG 尺寸导出脚本，保留比例与透明度并记录实测尺寸。脚本本身不做 AI 增强。
-- 需要当前客户端提供图像编辑能力；无工具时说明限制，不擅自切到付费 API。
-- [技能入口](skills/maxs-gpt-detail-rebuild-4k/SKILL.md) · [实际案例](skills/maxs-gpt-detail-rebuild-4k/references/roof-case.md)
-
-### 9. maxs-SD-to-Albedo · 雕刻贴图转写实 Albedo
-
-从已有 SD / ZBrush 结构贴图生成基色：源图决定布局，作品参考提供材质方向。附用户认可的中性旧砖原生生成图与实际提示词。
-
-- 保留砌块位置、轮廓、主要破口和砂浆边界；不把参考里的规则砖排套到不规则源图上。
-- 中性色差、可信陶土颗粒和局部旧化，避免艳橙、泛白、焦黑积垢及虫纹状假细节之间来回过度纠正。
-- Roughness 按需推断，按材料而非基色亮度赋值；检查实际范围并按线性数据读取。
-- 区分用户视觉认可、目视对应、像素配准、无缝平铺和引擎验收；原生尺寸与放大导出分别记录。
-- 增加用户认可的无缝修复 v2：程序化边缘校色 + 四角局部修正，附脚本、测试、偏移与平铺验收；边缘像素相等不代表视觉无缝。
-- 需要当前客户端图像编辑能力；无需切到 Midjourney 或覆盖原 Normal / AO。
-- [技能入口](skills/maxs-SD-to-Albedo/SKILL.md) · [用户认可案例](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md) · [无缝修复 v2](skills/maxs-SD-to-Albedo/references/seam-repair.md)
-
-### 10. maxs-GPT-to-Albedo · GPT 直接生成 Albedo
-
-从文字或材质参考直接生成平面基色图，沿用 `maxs-SD-to-Albedo` 的材质、颜色、细节和无缝验收要求。无需先提供 Height / Normal / AO。
-
-- 用 GPT 实际出图，外观参考提供材料与旧化方向，不复制材质球、场景灯光或背景。
-- 保持克制色彩、真实细节层次和无烘焙光影，避免泛白、艳色、焦黑与虫纹状假细节。
-- 需要平铺时检查两轴、四角与原尺寸局部；可复用 SD 版校色流程，但不套用其旧图遮罩。
-- 已有结构通道且要求对应时转 SD 版；新增 GPT 从零生成模板尚未作为独立实测成功案例。
-- [技能入口](skills/maxs-GPT-to-Albedo/SKILL.md) · [GPT 提示词模板](skills/maxs-GPT-to-Albedo/references/prompt-templates.md)
-
-## 推荐组合工作流
-
-**资产线(单件):**
-概念图 → `maxs-asset-breakdown` 拆解出白底资产图 → `maxs-multiview-reference` 出转角组 → Hyper3D 重建 → 进引擎
-
-**场景线(空间):**
-场景概念图(自己生成或 `maxs-image-to-prompt` 反推改造)→ `maxs-interior-multiangle` / `maxs-exterior-multiangle` 出机位组 → PureRef 参考板 → UE5 搭建
-
-**贴图线(材质):**
-材质需求 → `maxs-seamless-texture` 写 MJ `--tile` 提示词 → TAPNOW 出无缝图 → Substance Sampler 出 PBR → UE5
-
-**已有雕刻贴图线：**
-Height / Normal / AO + 材质参考 → `maxs-SD-to-Albedo` 生成基色 → 用户确认 → 按需 Roughness → 多通道对齐、平铺与引擎检查
-
-**GPT 直接生成基色线：**
-文字 / 外观参考 → `maxs-GPT-to-Albedo` 直接出图 → 色彩、细节与平铺检查 → 已认可 Albedo → 按需制作其它通道并另验对应关系
-
-**高清交付线（按需）：**
-已认可图片 / 单视图裁片 → `maxs-gpt-detail-rebuild-4k` 重建细节 → 检查造型与材质 → 核验尺寸 → 导出 4K 并说明是否包含放大步骤
-
-## 通用工具事实(香蕉系,2026-06 核实)
-
-- Nano Banana / Banana Pro / 香蕉2 均**不支持 seed**,也**没有负面提示参数**——一致性靠「参考图 + 同一对话」,排除项写成自然语言句子
-- 对话式中文完整句子优于英文关键词堆叠;hex 色值有效但要绑着物件写
-- 香蕉2 快 3-5 倍、约 95% 画质、中文理解更强:抽卡用香蕉2,精修用 Pro
-- 每个角度/机位抽 2-4 张再判断;图上具体文字(招牌/涂鸦)不要试图保留
-- ⚠️ **例外**:`maxs-seamless-texture` 走 **Midjourney**(非香蕉),用英文 tag + `--tile` / `--style raw` / `--s` / `--no` 等参数,写法与上面相反——贴图 PBR 链路专用,详见该 skill
-
-高亮噪点清理、AI 细节重建和雕刻贴图转 Albedo 技能使用当前客户端的图像编辑工具；GPT 直接生成 Albedo 使用 GPT 生图能力。它们不沿用上述香蕉或 Midjourney 专用参数。去噪后不自动追加细节重建，按用户实际需求选择。
-
-## 迭代
-
-改 skill 内容后 `git push`,在 marketplace 里点 Sync/更新即可拉到最新版。每个 skill 的实测沉淀记录见各自的 `CHANGELOG.md`。
+**Official website: [www.maxsacademy.com/en](https://www.maxsacademy.com/en)**
 
 ---
 
-MAXs Education 麦壳思 · 游戏CG教育
+<a id="chinese"></a>
+
+## 中文
+
+### MAXs Skills 是什么？
+
+**MAXs Skills 是 [MAXs Academy 麦壳思](https://www.maxsacademy.com/en) 提供的 AI 技能与工作流集合**，包含可复用指令、提示词模板、制作流程和质量检查。现有10个技能覆盖从概念图到3D资产参考、场景规划和游戏材质贴图的多个环节。
+
+技能面向**任何能够理解并执行这些指令的大语言模型**，包括 Claude、GPT、Gemini、开源权重模型及其他助手。可以通过兼容的技能／插件系统使用，也可以将 Markdown 指令直接交给所使用的模型。
+
+仓库沿用 `MAXs-Claude-Plugins` 名称，以兼容已有链接和安装方式；**技能内容并不局限于 Claude。**
+
+### 兼容性
+
+| 层级 | 作用 |
+| --- | --- |
+| 大语言模型 | 理解指令、编写提示词并组织流程；核心方法不绑定某一家模型。 |
+| 客户端 | 读取文件、注册技能或安装插件；能否原生安装取决于客户端支持的格式。 |
+| 执行工具 | 实际生成／编辑图像、处理文件或运行脚本；需要客户端或连接的服务提供。 |
+
+不支持插件市场的助手，也可以手动加载 MAXs 指令。安装技能不会让纯文字模型自动获得视觉、生图、文件访问或代码执行能力。
+
+名称中带 **GPT** 或 **MJ** 的技能对应特定图像工作流。其他大语言模型同样可以理解和组织流程，但产出图片仍需对应工具；工具专属参数也只适用于相应工具。“通用”不代表所有模型都已逐一实测，或能产生完全一致的效果。
+
+### 使用任意大语言模型开始
+
+1. 下载或克隆本仓库。
+2. 在下表中选择技能，打开对应的 `SKILL.md`。
+3. 将技能文件及本次任务需要的引用文档提供给助手；支持本地文件读取时，也可以直接提供路径。
+4. 补充需求、参考图和交付要求。
+
+建议保留完整 `skills/` 目录。部分技能共用标准，例如 GPT to Albedo 会引用 SD to Albedo。
+
+> 按照提供的 MAXs 技能及质量标准，参考这张图制作中性写实旧砖 Albedo。保留我认可的版本，后续只修指定区域；交付前检查两个方向的平铺与四角交汇。如果当前没有所需工具，请说明。
+
+详细技能指令目前以中文为主，可以要求助手使用需要的语言解释和交付。
+
+### 插件安装
+
+**Claude Code**——在客户端内运行：
+
+```text
+/plugin marketplace add ziwuxin1/MAXs-Claude-Plugins
+/plugin install maxs-skills@maxs
+```
+
+更新时先运行 `/plugin marketplace update maxs`，再通过客户端插件管理更新 `maxs-skills`。
+
+**Codex**——在终端运行：
+
+```shell
+codex plugin marketplace add https://github.com/ziwuxin1/MAXs-Claude-Plugins
+codex plugin add maxs-skills@maxs
+```
+
+更新已安装的插件：
+
+```shell
+codex plugin marketplace upgrade maxs
+codex plugin add maxs-skills@maxs
+```
+
+本仓库的根目录插件结构已在 Codex CLI **0.160.0** 成功安装；旧版 **0.141.0** 曾无法发现该插件。如果市场显示为空，请先更新 CLI。
+
+其他桌面客户端如支持技能导入或插件市场，可通过其界面安装；不支持时使用上面的手动加载方式。
+
+### 10个技能速查
+
+| 技能 | 适用任务 | 主要产出 |
+| --- | --- | --- |
+| [资产拆解](skills/maxs-asset-breakdown/SKILL.md) | 将概念图拆成资产，建立可复用提示词结构 | 资产陈列图提示词与复用包 |
+| [图转提示词](skills/maxs-image-to-prompt/SKILL.md) | 迁移构图到新题材，或反推可编辑的起点提示词 | 构图分析与提示词模板 |
+| [物体多视图](skills/maxs-multiview-reference/SKILL.md) | 为单件资产规划建模或重建参考视角 | 多视角指令与一致性检查 |
+| [室内多机位](skills/maxs-interior-multiangle/SKILL.md) | 在同一室内空间中探索不同机位 | 保持空间身份的机位提示词 |
+| [室外多机位](skills/maxs-exterior-multiangle/SKILL.md) | 从不同机位观察同一室外场地 | 保持场地与太阳关系的机位提示词 |
+| [MJ 无缝贴图](skills/maxs-seamless-texture/SKILL.md) | 编写 Midjourney 贴图提示词并组织 Substance 到引擎的流程 | 平铺贴图提示词与 PBR 制作指引 |
+| [GPT 高亮清理](skills/maxs-gpt-highlight-cleanup/SKILL.md) | 降低已认可图片中过密的白点与高亮噪声 | 定向修图；缺工具时提供提示词 |
+| [GPT 细节重建 4K](skills/maxs-gpt-detail-rebuild-4k/SKILL.md) | 重建可信材质细节后，核验尺寸并导出 | 增强图、尺寸核验与导出记录 |
+| [SD 转 Albedo](skills/maxs-SD-to-Albedo/SKILL.md) | 从已有 SD／ZBrush Height、Normal、AO 制作基色 | 按结构生成 Albedo；仅按需制作 Roughness |
+| [GPT 生成 Albedo](skills/maxs-GPT-to-Albedo/SKILL.md) | 从文字或外观参考直接制作基色 | Albedo 与尺寸、细节、平铺检查 |
+
+链接中的目录名就是稳定调用 ID。保留原有拼写和大小写，包括 `maxs-SD-to-Albedo` 与 `maxs-GPT-to-Albedo`。原生菜单提供双语显示名；菜单顺序与本 README 的英文优先排版相互独立。
+
+### 推荐工作流
+
+- **资产：** 概念图 → 资产拆解 → 物体多视图 → 建模／重建 → 引擎检查。
+- **场景：** 概念图／参考 → 按需图转提示词 → 室内或室外多机位 → 参考板 → 场景搭建。
+- **已有雕刻贴图：** Height／Normal／AO + 外观参考 → SD 转 Albedo → 审核 → 按需 Roughness → 通道对应与平铺检查。
+- **直接生成基色：** 需求／参考 → GPT 生成 Albedo → 色彩、细节与平铺检查 → 确定基色。
+- **Midjourney 材质：** MJ 无缝贴图 → 生图 → 平铺检查 → Substance 材质处理 → 引擎检查。
+- **图像精修：** 已认可图片 → 按需高亮清理或细节重建 4K → 局部检查与实际尺寸核验。
+
+### 质量原则
+
+- **以认可版本为基准。** 后续只修指定问题，不借修图重新设计整张材质。
+- **保持可信本色。** 中性不等于泛白，做旧不等于整片发黑。
+- **Albedo 表达本色。** 避免烘焙阴影、AO、高光和亮倒角。
+- **实际检查无缝。** 检查2×2平铺、宽高半幅偏移、两个方向和原尺寸四角；边缘像素相等不等于视觉无缝。
+- **记录真实尺寸。** 区分原生生成、插值放大、AI 细节重建与最终导出。
+- **区分目标与验证。** “AAA”和“ArtStation”是视觉目标，不是质量认证；引擎与多通道检查仍需单独进行。
+
+可查看[旧砖认可案例](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md)、[接缝修复案例](skills/maxs-SD-to-Albedo/references/seam-repair.md)和[细节重建案例](skills/maxs-gpt-detail-rebuild-4k/references/roof-case.md)。实测案例与尚未验证的模板分别标注。
+
+### 仓库与更新
+
+- `.claude-plugin/`：插件与市场清单。
+- `assets/`：品牌素材。
+- `skills/<skill-id>/SKILL.md`：技能入口。
+- 各技能按需包含 `agents/` 菜单元数据、`references/` 模板与案例、`scripts/` 处理脚本及 `tests/` 脚本检查。
+
+手动使用时拉取最新仓库；插件安装时刷新对应市场。变更记录见各技能提供的 changelog。菜单出现重复项时，先核对其所属插件，再决定是否移除。
+
+### 关于 MAXs
+
+[MAXs Academy 麦壳思](https://www.maxsacademy.com/en) 提供游戏美术、设计与技术美术教育。本技能库分享 MAXs 在项目制作与教学中整理的实用方法。
+
+**官方网站：[www.maxsacademy.com/en](https://www.maxsacademy.com/en)**
