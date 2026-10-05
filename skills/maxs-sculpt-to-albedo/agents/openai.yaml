@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAXs 雕刻贴图转写实 Albedo"
+  short_description: "依据雕刻贴图锁定布局，生成中性写实基色，并按需推断粗糙度与检查对应关系"
+  default_prompt: "使用 $maxs-sculpt-to-albedo，根据我的 Height、Normal、AO 和材质参考生成 Albedo，保留原布局，控制色彩与旧化强度，核验实际尺寸和对应关系。"

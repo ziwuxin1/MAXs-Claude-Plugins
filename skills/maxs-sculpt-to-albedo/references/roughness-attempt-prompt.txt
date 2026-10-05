@@ -1,0 +1,9 @@
+Produce a grayscale PBR ROUGHNESS data texture matching the supplied brick albedo's exact spatial layout. White means rough, black means smooth. This is NOT a grayscale photograph, NOT ambient occlusion, NOT height, NOT specular, NOT a rendered material.
+Strictly preserve all existing block positions, outlines, mortar regions, chipped areas and spatial alignment; no shifts, new fractures, new brick patterns, perspective or frame. Square full frame.
+The material is dry aged unglazed brick and dry weathered sandy lime mortar. Interpret roughness physically by surface material, independent of its color or illumination:
+- brick bodies moderately high roughness, approximately 0.70-0.83 (encoded gray 179-212 out of 255);
+- mortar and dry powder deposits higher roughness approximately 0.85-0.93 (217-237);
+- occasional rubbed compact clay areas slightly smoother approximately 0.60-0.70 (153-179), sparse and irregular, not a bright/dark outline.
+Fine restrained granular microvariation within each region; uneven dusty deposits increase roughness gently. Medium-scale softly mottled variation, crisp material boundaries, readable but restrained variation between brick and mortar. Different red and tan bricks should have similar roughness; do not translate original brick color differences directly into gray value. No wet patches or shiny black specks.
+Remove ALL illumination cues: no dark mortar crevice lines, no black AO, no edge shadows, no highlighted bevels, no embossing, no height-like gradients across facets, no directional shading. Recesses containing mortar stay light gray regardless of darkness in input. All facets on each brick have comparable roughness.
+Overall light-gray high-roughness map with subtly lighter mortar, modest material separation. No pure black or pure white, no extreme contrast. No invented crack webs, scratches, worms or repeating etched pattern. Grayscale identical R=G=B, no text, no annotations. Requested 2048x2048.

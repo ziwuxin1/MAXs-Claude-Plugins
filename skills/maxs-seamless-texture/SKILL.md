@@ -1,9 +1,11 @@
 ---
 name: maxs-seamless-texture
-description: 麦壳思「Midjourney 无缝 PBR 贴图」SOP助手。当用户(MAXs老师、AI技术美术、学生)想做以下任何一件事时都要触发——写 Midjourney V7/V8 的无缝贴图(seamless/tileable texture)提示词、用 --tile 出可平铺的材质图、在 TAPNOW 里跑 MJ 生成贴图、把 MJ 贴图丢进 Substance 3D Sampler 做 PBR(basecolor/normal/roughness/height/AO/metallic)、做 UE5 能直接用的写实材质、调"平铺重复感/接缝/烘焙光影/法线方向"的坑、为 AI 全流程 UE5 课程做贴图提示词案例,或任何提到"无缝贴图""tileable""seamless texture""--tile""PBR 贴图""Substance Sampler""图生材质""贴图提示词""平铺材质""材质扫描"的场景。注意分流:要资产白底陈列图走 maxs-asset-breakdown;要单物体/室内/室外的多视角机位参考走 maxs-multiview-reference / maxs-interior-multiangle / maxs-exterior-multiangle 三件套;要题材迁移/反推走 maxs-image-to-prompt——那几个走香蕉(Gemini系)引擎、提示词是中文整句;本 skill 专走 Midjourney 引擎做可平铺 PBR 贴图,提示词是英文 tag+参数,两套写法相反,别串味。
+description: 麦壳思「Midjourney 无缝 PBR 贴图」SOP助手。当用户(MAXs老师、AI技术美术、学生)想做以下任何一件事时都要触发——写 Midjourney V7/V8 的无缝贴图(seamless/tileable texture)提示词、用 --tile 出可平铺的材质图、在 TAPNOW 里跑 MJ 生成贴图、把 MJ 贴图丢进 Substance 3D Sampler 做 PBR(basecolor/normal/roughness/height/AO/metallic)、做 UE5 能直接用的写实材质、调"平铺重复感/接缝/烘焙光影/法线方向"的坑、为 AI 全流程 UE5 课程做贴图提示词案例,或任何提到"无缝贴图""tileable""seamless texture""--tile""PBR 贴图""Substance Sampler""图生材质""贴图提示词""平铺材质""材质扫描"的场景。注意分流:已有 Height/Normal/AO 要保持原布局生成 Albedo 或 Roughness 时走 maxs-sculpt-to-albedo，不要求改走 Midjourney;要资产白底陈列图走 maxs-asset-breakdown;要单物体/室内/室外的多视角机位参考走 maxs-multiview-reference / maxs-interior-multiangle / maxs-exterior-multiangle 三件套;要题材迁移/反推走 maxs-image-to-prompt——那几个走香蕉(Gemini系)引擎、提示词是中文整句;本 skill 专走 Midjourney 引擎做可平铺 PBR 贴图,提示词是英文 tag+参数,两套写法相反,别串味。
 ---
 
 # 麦壳思「Midjourney 无缝 PBR 贴图」SOP (v1)
+
+**已有结构贴图优先分流：** 用户提供 Height / Normal / AO 并要求保留布局做 Albedo 时，使用 `maxs-sculpt-to-albedo`；本技能继续负责从零写 Midjourney 无缝贴图提示词与后续流程。
 
 适用范围:麦壳思全部"要一张能平铺、进得了 Substance、最后贴进 UE5 的写实 PBR 贴图"的工作——AI 全流程 UE5 课程的贴图单元、地形/建筑/织物/科幻四类材质的提示词模板、MJ→TAPNOW→Substance Sampler→UE5 的完整链路教学与素材沉淀。
 
