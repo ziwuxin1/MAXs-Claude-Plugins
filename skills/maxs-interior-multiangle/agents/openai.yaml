@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAXs · 室内多机位"
+  short_description: "为同一室内空间编写多机位图像指令，保持空间布局、场景身份与光源关系"
+  default_prompt: "使用 $maxs-interior-multiangle，根据我的室内参考图制作保持空间关系一致的多机位指令。"

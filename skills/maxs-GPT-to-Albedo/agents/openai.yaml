@@ -1,4 +1,4 @@
 interface:
-  display_name: "maxs-GPT-to-Albedo"
+  display_name: "MAXs · GPT 生成 Albedo"
   short_description: "用 GPT 从文字或参考图直接生成写实基色，沿用 SD 版材质标准与无缝验收"
   default_prompt: "使用 $maxs-GPT-to-Albedo，根据我的材质描述或参考图直接生成 Albedo，沿用 maxs-SD-to-Albedo 的色彩、细节与无缝标准，核验实际输出尺寸。"

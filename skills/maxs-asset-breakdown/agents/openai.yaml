@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAXs · 资产拆解"
+  short_description: "拆解概念图中的资产，编写用于白底陈列、多视图准备与建模参考的图像提示词"
+  default_prompt: "使用 $maxs-asset-breakdown，拆解我的概念图，生成资产陈列与建模参考提示词。"

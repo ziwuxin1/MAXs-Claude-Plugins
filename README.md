@@ -34,18 +34,22 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 
 ## 十件套速查
 
-| Skill | 一句话定位 | 什么时候用 | 产出 |
-|-------|-----------|-----------|------|
-| `maxs-asset-breakdown` | 提示词工程总纲 + 资产拆解陈列 | 拿到概念图要拆出部件做白底陈列图/重建喂图,或任何提示词写不稳的时候 | 资产陈列图/白底图提示词 + 复用包 |
-| `maxs-image-to-prompt` | 图转提示词 v2:题材迁移 + 起点反推 | 把好构图搬到新题材(语境锁死),或借网图反推自己的起点;同场景变体请走多机位三件套 | 骨架卡 + 挂图迁移定稿模板 / 带【变量】起点模板 |
-| `maxs-multiview-reference` | 单物体多视图 | 一件资产要出前后左右俯视(建模施工图 / Hyper3D 喂图) | 保持句 + 八视角指令组 + Hyper3D 槽位对照 |
-| `maxs-interior-multiangle` | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
-| `maxs-exterior-multiangle` | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
-| `maxs-seamless-texture` | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
-| `maxs-gpt-highlight-cleanup` | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
-| `maxs-gpt-detail-rebuild-4k` | GPT AI 细节重建4K高清化 | 图片要真正高清化、补材质细节，不能只是像素放大 | AI 原始增强图 + 核验尺寸的 4K 导出图 + 处理记录 |
-| `maxs-SD-to-Albedo` | 雕刻贴图转写实 Albedo | 已有 SD / ZBrush Height、Normal、AO，要保留布局并按参考生成基色 | Albedo + 按需 Roughness + 实测尺寸与验证记录 |
-| `maxs-GPT-to-Albedo` | GPT 直接生成 Albedo | 从文字或外观参考直接出颜色贴图，无需结构贴图 | Albedo 图片 + 实测尺寸 + 细节与平铺检查记录 |
+| Skill / 调用 ID | 菜单显示名 | 一句话定位 | 什么时候用 | 产出 |
+|-------|-----------|-----------|-----------|------|
+| `maxs-asset-breakdown` | MAXs · 资产拆解 | 提示词工程总纲 + 资产拆解陈列 | 拿到概念图要拆出部件做白底陈列图/重建喂图,或任何提示词写不稳的时候 | 资产陈列图/白底图提示词 + 复用包 |
+| `maxs-image-to-prompt` | MAXs · 图转提示词 | 图转提示词 v2:题材迁移 + 起点反推 | 把好构图搬到新题材(语境锁死),或借网图反推自己的起点;同场景变体请走多机位三件套 | 骨架卡 + 挂图迁移定稿模板 / 带【变量】起点模板 |
+| `maxs-multiview-reference` | MAXs · 物体多视图 | 单物体多视图 | 一件资产要出前后左右俯视(建模施工图 / Hyper3D 喂图) | 保持句 + 八视角指令组 + Hyper3D 槽位对照 |
+| `maxs-interior-multiangle` | MAXs · 室内多机位 | 室内场景多机位 | 一张内景概念图要出反打/仰拍/俯瞰等整组机位(UE5 搭场景) | 空间身份句 + 十机位指令组 |
+| `maxs-exterior-multiangle` | MAXs · 室外多机位 | 室外场景多机位 | 一张外景概念图要出俯瞰/远景/穿行等整组机位(UE5 室外关卡) | 场地身份句 + 九机位指令组 |
+| `maxs-seamless-texture` | MAXs · MJ 无缝贴图 | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
+| `maxs-gpt-highlight-cleanup` | MAXs · GPT 高亮清理 | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
+| `maxs-gpt-detail-rebuild-4k` | MAXs · GPT 细节重建 4K | GPT AI 细节重建4K高清化 | 图片要真正高清化、补材质细节，不能只是像素放大 | AI 原始增强图 + 核验尺寸的 4K 导出图 + 处理记录 |
+| `maxs-SD-to-Albedo` | MAXs · SD 转 Albedo | 雕刻贴图转写实 Albedo | 已有 SD / ZBrush Height、Normal、AO，要保留布局并按参考生成基色 | Albedo + 按需 Roughness + 实测尺寸与验证记录 |
+| `maxs-GPT-to-Albedo` | MAXs · GPT 生成 Albedo | GPT 直接生成 Albedo | 从文字或外观参考直接出颜色贴图，无需结构贴图 | Albedo 图片 + 实测尺寸 + 细节与平铺检查记录 |
+
+菜单显示名统一使用 **MAXs · 功能名称**，GPT、SD、MJ 等缩写保持大写；调用 ID 和目录保持兼容，已有 `$skill-name` 用法不变。插件名称 `maxs-skills` 是安装标识，不重复放进显示名。
+
+若菜单同时出现 `Anthropic Skills: Maxs …`，这是另一插件中的副本，不是本插件重复注册。本插件提供 10 个技能；更新本插件不会删除其它插件的副本。整理重复项时先核对来源及其独有技能，避免为去重卸载仍在使用的其它功能。
 
 ## 各 Skill 详解
 

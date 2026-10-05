@@ -1,0 +1,4 @@
+interface:
+  display_name: "MAXs · 室外多机位"
+  short_description: "为同一室外场景编写多机位图像指令，保持场地结构、太阳方向和环境关系"
+  default_prompt: "使用 $maxs-exterior-multiangle，根据我的室外参考图制作保持场地与光照关系一致的多机位指令。"
