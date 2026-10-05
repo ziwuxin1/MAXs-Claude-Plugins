@@ -1,6 +1,6 @@
 ---
 name: maxs-SD-to-Albedo
-description: 基于已有 Substance Designer / ZBrush Height、Normal、AO 或已认可 Albedo，按材质参考生成保持原布局的写实游戏 Albedo，并按需推断 Roughness。用于“按我的雕刻贴图做基色”“中性色旧砖”“不要 AI 裂纹感”“平铺颜色接缝”“四角砖块色差”等需求；从零写 Midjourney 无缝贴图提示词走 maxs-seamless-texture。
+description: 基于已有 Substance Designer / ZBrush Height、Normal、AO 或已认可 Albedo，按材质参考生成保持原布局的写实游戏 Albedo，并按需推断 Roughness。用于“按我的雕刻贴图做基色”“中性色旧砖”“不要 AI 裂纹感”“平铺颜色接缝”“四角砖块色差”等需求；GPT 从零生基色走 maxs-GPT-to-Albedo，Midjourney 无缝提示词走 maxs-seamless-texture。
 ---
 
 # maxs-SD-to-Albedo
@@ -10,6 +10,8 @@ description: 基于已有 Substance Designer / ZBrush Height、Normal、AO 或�
 默认完成用户要求的通道。只要 Albedo 就不自动重做法线或生成整套 ORM。用户提到 ArtStation / AAA 时，把目标落实到结构对应、材质层次、色彩、无烘焙光影和引擎检查，不能把这些词当作质量认证。
 
 ## 输入与分流
+
+没有需要对应的结构贴图、只要求 GPT 从文字或外观参考直接出图时，使用 [maxs-GPT-to-Albedo](../maxs-GPT-to-Albedo/SKILL.md)。它共用本技能的 Albedo 质量要求，不需要补交 Height / Normal / AO。
 
 1. 查看用户指定的原始文件，读取尺寸、通道和位深。TGA 等不受图像工具支持时另存可读取的参考副本，保留源数据；参考副本的 8-bit 转换不能替代原始高精度 Height。
 2. 标记每张图的角色：AO / Normal / Height 是**同一 UV 的结构参考**；照片、球体或墙体渲染是**材质参考**；已认可 Albedo 是**编辑基准**。不照搬展示图的透视、光照、砖排列、地面、标识。
