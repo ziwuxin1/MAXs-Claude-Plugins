@@ -137,8 +137,9 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - 中性色差、可信陶土颗粒和局部旧化，避免艳橙、泛白、焦黑积垢及虫纹状假细节之间来回过度纠正。
 - Roughness 按需推断，按材料而非基色亮度赋值；检查实际范围并按线性数据读取。
 - 区分用户视觉认可、目视对应、像素配准、无缝平铺和引擎验收；原生尺寸与放大导出分别记录。
+- 增加用户认可的无缝修复 v2：程序化边缘校色 + 四角局部修正，附脚本、测试、偏移与平铺验收；边缘像素相等不代表视觉无缝。
 - 需要当前客户端图像编辑能力；无需切到 Midjourney 或覆盖原 Normal / AO。
-- [技能入口](skills/maxs-SD-to-Albedo/SKILL.md) · [用户认可案例](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md)
+- [技能入口](skills/maxs-SD-to-Albedo/SKILL.md) · [用户认可案例](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md) · [无缝修复 v2](skills/maxs-SD-to-Albedo/references/seam-repair.md)
 
 ## 推荐组合工作流
 
