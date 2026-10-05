@@ -1,9 +1,9 @@
 ---
-name: maxs-sculpt-to-albedo
+name: maxs-SD-to-Albedo
 description: 基于已有 Substance Designer / ZBrush Height、Normal、AO 或已认可 Albedo，按材质参考生成保持原布局的写实游戏 Albedo，并按需推断 Roughness。用于“按我的雕刻贴图做基色”“中性色旧砖”“不要 AI 裂纹感”等需求；从零写 Midjourney 无缝贴图提示词走 maxs-seamless-texture。
 ---
 
-# MAXs 雕刻贴图转写实 Albedo
+# maxs-SD-to-Albedo
 
 **结构由源贴图决定，参考图提供材质；真实感来自合理的材质细节与克制的变化。**
 

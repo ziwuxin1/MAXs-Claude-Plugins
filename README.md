@@ -44,7 +44,7 @@ MAXs Education 麦壳思游戏CG教育 官方 Claude 技能市场(marketplace)�
 | `maxs-seamless-texture` | Midjourney 无缝 PBR 贴图 | 要一张能平铺、进 Substance Sampler 做 PBR、贴进 UE5 的写实材质(地形/建筑/织物/科幻做旧) | 四品类 `--tile` 提示词 + Substance→UE5 完整 SOP |
 | `maxs-gpt-highlight-cleanup` | MAXs 一键去除GPT生图高亮噪点 | 图片白点、闪点或粉笔状斑驳过密，希望保留结构并降低噪声 | 哑光清理图 + 可回退版本；无图像工具时提供提示词 |
 | `maxs-gpt-detail-rebuild-4k` | GPT AI 细节重建4K高清化 | 图片要真正高清化、补材质细节，不能只是像素放大 | AI 原始增强图 + 核验尺寸的 4K 导出图 + 处理记录 |
-| `maxs-sculpt-to-albedo` | 雕刻贴图转写实 Albedo | 已有 SD / ZBrush Height、Normal、AO，要保留布局并按参考生成基色 | Albedo + 按需 Roughness + 实测尺寸与验证记录 |
+| `maxs-SD-to-Albedo` | 雕刻贴图转写实 Albedo | 已有 SD / ZBrush Height、Normal、AO，要保留布局并按参考生成基色 | Albedo + 按需 Roughness + 实测尺寸与验证记录 |
 
 ## 各 Skill 详解
 
@@ -129,7 +129,7 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - 需要当前客户端提供图像编辑能力；无工具时说明限制，不擅自切到付费 API。
 - [技能入口](skills/maxs-gpt-detail-rebuild-4k/SKILL.md) · [实际案例](skills/maxs-gpt-detail-rebuild-4k/references/roof-case.md)
 
-### 9. maxs-sculpt-to-albedo · 雕刻贴图转写实 Albedo
+### 9. maxs-SD-to-Albedo · 雕刻贴图转写实 Albedo
 
 从已有 SD / ZBrush 结构贴图生成基色：源图决定布局，作品参考提供材质方向。附用户认可的中性旧砖原生生成图与实际提示词。
 
@@ -138,7 +138,7 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 - Roughness 按需推断，按材料而非基色亮度赋值；检查实际范围并按线性数据读取。
 - 区分用户视觉认可、目视对应、像素配准、无缝平铺和引擎验收；原生尺寸与放大导出分别记录。
 - 需要当前客户端图像编辑能力；无需切到 Midjourney 或覆盖原 Normal / AO。
-- [技能入口](skills/maxs-sculpt-to-albedo/SKILL.md) · [用户认可案例](skills/maxs-sculpt-to-albedo/references/neutral-brick-case.md)
+- [技能入口](skills/maxs-SD-to-Albedo/SKILL.md) · [用户认可案例](skills/maxs-SD-to-Albedo/references/neutral-brick-case.md)
 
 ## 推荐组合工作流
 
@@ -152,7 +152,7 @@ v2 重定位。铁律分流:目标图存在参考图就走图生图多机位三�
 材质需求 → `maxs-seamless-texture` 写 MJ `--tile` 提示词 → TAPNOW 出无缝图 → Substance Sampler 出 PBR → UE5
 
 **已有雕刻贴图线：**
-Height / Normal / AO + 材质参考 → `maxs-sculpt-to-albedo` 生成基色 → 用户确认 → 按需 Roughness → 多通道对齐、平铺与引擎检查
+Height / Normal / AO + 材质参考 → `maxs-SD-to-Albedo` 生成基色 → 用户确认 → 按需 Roughness → 多通道对齐、平铺与引擎检查
 
 **高清交付线（按需）：**
 已认可图片 / 单视图裁片 → `maxs-gpt-detail-rebuild-4k` 重建细节 → 检查造型与材质 → 核验尺寸 → 导出 4K 并说明是否包含放大步骤
